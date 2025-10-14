@@ -27,7 +27,7 @@ public class Block {
         
         while (true){
 
-            MessageDigest md = MessageDigest.getInstance("sha-256");
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
         
             md.update(ByteBuffer.allocate(4).putInt(num).array());
             md.update(ByteBuffer.allocate(4).putInt(amount).array());
@@ -61,7 +61,7 @@ public class Block {
         this.previous = prevHash;
         this.nonce = nonce;
 
-        MessageDigest md = MessageDigest.getInstance("sha-256");
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
         
         md.update(ByteBuffer.allocate(4).putInt(num).array());
         md.update(ByteBuffer.allocate(4).putInt(amount).array());

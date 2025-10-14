@@ -23,7 +23,8 @@ public class BlockChain {
     private Node last;
     private int size;
 
-    public BlockChain(int initial) throws NoSuchAlgorithmException{
+    public BlockChain(int initial) throws NoSuchAlgorithmException {
+
         Block firstblock = new Block(0, initial, null);
         Node node = new Node (firstblock, null);
         this.first = node;
@@ -147,11 +148,13 @@ public class BlockChain {
         String str = "";
         Node curr = first;
 
-        while (curr.next!=null){
+        while (curr!=null){
 
             Block b = curr.block;
-            str += "Block" + b.getNum() + "(Amount:" + b.getAmount() + ", Nonce:" + b.getNonce() + ", prevHash:"
-             + b.getPrevHash() + ", hash:" + b.getHash(); 
+            str += "Block " + b.getNum() + " (Amount: " + b.getAmount() + ", Nonce: " + b.getNonce() + ", prevHash: "
+             + b.getPrevHash() + ", hash: " + b.getHash() + ")\n"; 
+
+            curr = curr.next;
                     
         }
 
