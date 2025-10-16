@@ -16,33 +16,39 @@ public class BlockChainDriver {
      */
     public static void main(String[] args) throws NoSuchAlgorithmException {
         
+        // Checking for argument for initial amount passed through command line
         if (args.length != 1){
             System.out.println("Usage java BlockChainDriver <Initial Amount>");
             return;
         }
 
+        // Creating a scanner object to read input from user after the first argument
         Scanner scanner = new Scanner(System.in);
         
         String arg = args[0];
         int initial = Integer.parseInt(arg);
+
+        // Creating a new blockchain using the initial amount the user entered as command line arg
         BlockChain blockchain = new BlockChain(initial);
 
         
-        
+        // The loop runs till the user quits (one of the commands)
         while (true){
 
+            // Printing the blockchain and asking for the command
             System.out.print(blockchain.toString());
             System.out.print("Command? ");
 
+            // Checking if scanner has another input or not
             if (!scanner.hasNext()){
                 break;
             }
 
+            // Taking in the input and assigning it to a string
             String command = scanner.next();
 
+            // IF - else if - else loop checking which command has been enetred
             if (command.equals("mine")){
-
-                
 
                 System.out.print("Amount transferred? ");
                 String command2 = scanner.next();
@@ -52,8 +58,6 @@ public class BlockChainDriver {
                 System.out.println();
 
             } else if (command.equals("append")) {
-
-    
 
                 System.out.print("Amount transferred? ");
                 String command2 = scanner.next();
@@ -107,15 +111,8 @@ public class BlockChainDriver {
 
             }
 
-
-
-
         }
 
-
-
-
-
-
     }  
+    
 }

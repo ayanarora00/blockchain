@@ -10,12 +10,21 @@ import java.security.NoSuchAlgorithmException;
 
 public class Block {
     
+    // Declaring the private variables
     private int num;
     private int amount;
     private long nonce;
     private Hash previous;
     private Hash hash;
 
+    /** Constructor that creates a new block from the specified parameters, 
+     *  performing the mining operation to discover the nonce and hash for this block given these parameters.
+     * 
+     * @param num the block number 
+     * @param amount the amount to be put
+     * @param prevHash the previous block's hash
+     * @throws NoSuchAlgorithmException
+     */
 
     public Block(int num, int amount, Hash prevHash) throws NoSuchAlgorithmException {
 
@@ -54,6 +63,17 @@ public class Block {
         
     }
 
+    /** Constructor that creates a new block from the specified parameters, using the provided nonce and additional parameters
+     *  to generate the hash for the block. Because the nonce is provided, this constructor does not 
+     *  need to perform the mining operation; it can compute the hash directly.
+     * 
+     * @param num the block number
+     * @param amount the amount for the new block
+     * @param prevHash the hash of the previous block
+     * @param nonce the nonce for this block
+     * @throws NoSuchAlgorithmException
+     */
+
     public Block(int num, int amount, Hash prevHash, long nonce) throws NoSuchAlgorithmException{
 
         this.num = num;
@@ -75,25 +95,57 @@ public class Block {
 
     }
 
+    /** Returns the number of this block.
+     * 
+     * @param takes nothing as parameter
+     * @return int - num of the block
+     */
+
     public int getNum(){
         return this.num;
     }
 
+    /** Returns the amount of the block
+     * 
+     * @param takes nothing as parameter
+     * @return int - amount of this block
+     */
     public int getAmount(){
         return this.amount;
     }
 
+    /** Returns the nonce of the block
+     * 
+     * @param takes nothing as parameter
+     * @return long - nonce of this block
+     */
     public long getNonce(){
         return this.nonce;
     }
 
+    /** Returns the hash of the previous block
+     * 
+     * @param takes nothing as parameter
+     * @return Hash - hash of the previous block
+     */
     public Hash getPrevHash(){
         return this.previous;
     }
 
+    /** Returns the hash of this block
+     * 
+     * @return Hash - hash of this block
+     */
     public Hash getHash(){
         return this.hash;
     }
+
+    /** returns a string representation of the Block
+     *
+     * 
+     * @param takes nothing as parameter
+     * @returns String - the string representation of the block
+     */
 
     public String toString(){
 
